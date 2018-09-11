@@ -1093,6 +1093,7 @@ class App extends Component {
     this.finishMsq = this.finishMsq.bind(this);
     this.resulted = this.resulted.bind(this);
     this.resTwo = this.resTwo.bind(this);
+    this.startPageBack = this.startPageBack.bind(this);
     // this.chkLogin = this.chkLogin.bind(this);
     // this.upDateLocalStorage = this.upDateLocalStorage.bind(this);
     // this.upDateLocalStorage();
@@ -1142,7 +1143,7 @@ class App extends Component {
        {!user && <SignupPage />}
        {user && listDis && <QuizListScreen quizList={quizList} listDisa={this.disableList}/>}
        {user && !listDis && !startPage && <OpenQuiz openQuizPage={openQuizPage} back={this.back}  startFunc={this.startFunc}/>}
-       {user && !listDis && startPage && !keyChecked &&!result2 &&  <StartQuiz openQuizPage={openQuizPage} startedQuiz={startedQuiz} keyCheckedFunc={this.keyChecked} thisjs={this.state}  resTwo={this.resTwo}/>}
+       {user && !listDis && startPage && !keyChecked &&!result2 &&  <StartQuiz openQuizPage={openQuizPage} startedQuiz={startedQuiz} keyCheckedFunc={this.keyChecked} thisjs={this.state} startPageBack={this.startPageBack}  resTwo={this.resTwo}/>}
        {user && !listDis && startPage && keyChecked && !result && !result2 && <McqsPage openQuizPage={openQuizPage} startedQuiz={startedQuiz} msqNum={msqNum} nextNum={this.nextNum} finishMsq={this.finishMsq} tr={this.tr} fl={this.fl} thisjs={this.state} resTwo={this.resTwo}/>}
        {user && !listDis && startPage && keyChecked && result && !result2 && <ResultPage length={length} percentage={percentage} trues={trues} resulted={this.resulted} thisjs={this.state}/>}
        {result2 && <ResultPage2 />}
@@ -1155,6 +1156,11 @@ class App extends Component {
     this.setState({
       result2: true,
       
+    })
+  }
+  startPageBack(){
+    this.setState({
+      startPage: false
     })
   }
   nextNum(){

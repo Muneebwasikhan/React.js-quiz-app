@@ -37,7 +37,7 @@ class StartQuiz extends Component {
        
     }
     render() { 
-        const { openQuizPage,startedQuiz } = this.props;
+        const { openQuizPage,startedQuiz,startPageBack } = this.props;
 
         return ( 
             <div class="container">
@@ -59,6 +59,7 @@ class StartQuiz extends Component {
     <button class="btn btn-primary btn-lg mt-2" onClick={() => this.continue()}>Continue</button>
   </div>
 </div>
+<button class="btn btn-primary mt-2" onClick={startPageBack}>BACK</button>
             </div>
          );
     }

@@ -116,7 +116,7 @@ class McqsPage extends Component {
     finishMsq();
   }
   countDown(){
-      const { openQuizPage,startedQuiz } = this.props;
+      const { openQuizPage,startedQuiz,finishMsq } = this.props;
       const { time } = this.state;
       var lastTime = parseInt(startedQuiz.time) * 60000;
       // console.log("aaaaa"+lastTime);
@@ -145,8 +145,9 @@ var x = setInterval(function() {
     })
     if (distance < 0) {
       clearInterval(x);
+      localStorage.removeItem('countDownDate');
         
-        this.finish();
+      finishMsq();
         alert("EXPIRED");
     }
 }, 1000);
